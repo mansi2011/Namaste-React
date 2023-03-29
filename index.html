@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Namaste React</title>
+</head>
+<body>
+    <div id="root">
+        <!-- <h1>Hello World</h1> -->
+        <!-- if above hello world is there then root.render(parent) will replace this content while showing on browser because of 37 line we have written and content written via react will get render on browser-->
+    </div>
+    <h2>check here </h2> 
+    <!-- this will be visible as react takes control over the div id root -->
+
+    <!-- <script>
+    const heading = document.createElement('h1')
+    heading.innerHTML = 'Hello World from javascript'
+    const root  = document.getElementById('root')
+    root.appendChild(heading)
+    </script> -->
+
+
+    <!-- these CDN links injected the react library in our project -->
+
+    <!-- learn more about CDN and crossorigin attribute of script tag -->
+
+    <!-- first src file is the core file of react
+    second src file is the file that can help ReactDOM manipulation -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- hello world in react -->
+
+    <!-- React. createElement(arg1,arg2,arg3) => element name , object, content inside element -->
+
+    <script src="App.js">
+        // const heading = React.createElement('h1',{},'hello world from React') // creating element will be handle by core React hence React.createElement
+        // const root = ReactDOM.createRoot(document.getElementById('root')) // creating a root which can render content on browser will be handle by ReactDOM hence ReactDOM.createRoot
+        // root.render(heading) // rendering content on browser will be done by render method
+    </script>
+    
+</body>
+</html>
+
+<!-- Note: order of files inside script tag is always intact it should not change its order -->
