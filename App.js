@@ -1,3 +1,6 @@
+import React from "react"
+import  ReactDOM from "react-dom/client"
+
 // separated react code in different file inside App.js
 
 // missing object can take attribute to the tag we are creating as element eg : {id : "heading"}
@@ -58,7 +61,7 @@
 </div> */}
 
 
-const siblingChildDiv = React.createElement('div',{id:'parent'},[React.createElement('div',{id:'child'},[React.createElement('h1',{},'i am h1 tag'),React.createElement('h2',{},'i am h2 tag')]),React.createElement('div',{id:'child2'},[React.createElement('h1',{},'i am h1 tag1'),React.createElement('h2',{},'i am h2 tag1')])])
+const siblingChildDiv = React.createElement('div',{id:'parent'},[React.createElement('div',{id:'child'},[React.createElement('h1',{},'Namaste React'),React.createElement('h2',{},'i am h2 tag')]),React.createElement('div',{id:'child2'},[React.createElement('h1',{},'i am h1 tag1'),React.createElement('h2',{},'i am h2 tag1')])])
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
