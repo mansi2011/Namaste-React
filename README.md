@@ -170,3 +170,28 @@ production build - npx parcel build index.html
 -Gives the HTTPs,lazy loading feature 
 -Tree Shaking - remove unused code for you
 
+
+Ep 3 - Laying the Foundation
+
+-script are used for making our job easy to do some action via command
+
+React.createElement => Object => HTMLElement(render)
+
+React.createElement => ReactElement - JS Object => HTMLElement(render)
+const heading = React.createElement('h1',{id:"heading"},"Namaste React")
+
+JSX - is not HTML in javascript but its HTML-Like or  XML-Like Syntax 
+the below code is transpiled by babel package which manages by PARCEL before going to JS Engine and browser understand the code and generate the ouptut
+const jsxHeading = (<h1 id="heading">Namaste React using JSX</h1>)
+
+JSX => (babel at the end of the day is converting the JSX code to React.createElement) React.createElement => ReactElement - JS Object => HTMLElement(render)
+JSX can prevent injection attack because it sanitizes the expression we provide inside {}
+JSX Expression must have only one parent element 
+we might use react fragment <React.Fragment> or shortcut <></> provided by React to solve the problem of getting unnecessary div because it act as  empty tag
+
+attribute of tag in JSX takes camelcasing and there is modification from that of HTML Attribute eg class => className
+
+React Component - its simply a normal javascript function which returns some JSX(React Element)
+
+To render a component we follow this syntax - <Component/>
+Inside JSX if we write {} we can run any javascript expression
