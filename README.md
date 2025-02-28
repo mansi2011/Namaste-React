@@ -184,14 +184,51 @@ JSX - is not HTML in javascript but its HTML-Like or  XML-Like Syntax
 the below code is transpiled by babel package which manages by PARCEL before going to JS Engine and browser understand the code and generate the ouptut
 const jsxHeading = (<h1 id="heading">Namaste React using JSX</h1>)
 
-JSX => (babel at the end of the day is converting the JSX code to React.createElement) React.createElement => ReactElement - JS Object => HTMLElement(render)
+JSX => (babel (javascript compiler) at the end of the day is converting the JSX code to React.createElement) React.createElement => ReactElement - JS Object => HTMLElement(render)
 JSX can prevent injection attack because it sanitizes the expression we provide inside {}
 JSX Expression must have only one parent element 
 we might use react fragment <React.Fragment> or shortcut <></> provided by React to solve the problem of getting unnecessary div because it act as  empty tag
 
 attribute of tag in JSX takes camelcasing and there is modification from that of HTML Attribute eg class => className
 
-React Component - its simply a normal javascript function which returns some JSX(React Element)
+React Component - its simply a normal javascript function which returns some JSX(React Element) just name the component name starting in capital letter
 
-To render a component we follow this syntax - <Component/>
+To render a component we follow this syntax - <Component/> eg: root.render(<Component/>)
 Inside JSX if we write {} we can run any javascript expression
+
+Component Composition - composing component inside of a component is basically a component composition.
+eg:     return(
+        <div className="app">
+            <Header/>
+            {Header()}
+            <h1>Hello React</h1>
+        </div>
+    )
+
+
+Ep 4 - talk is cheap, show me the code
+
+before coding an app- eg: food delivering app
+1. first plan the design of the app includes - header, logo, navbar , content/body placeholder, footer placeholder
+2. features it will have like - searching, sorting, filtering, cart
+3. build a mock on pen or paper
+4. component my app will have and its low level design tree structure
+   header
+    - logo
+    - nav item
+   body
+    - search 
+    - restaurant container
+        - restaurat card
+            - img
+            - cuisine
+            - rating
+            - delivery time
+            - price for two
+   footer
+    - copyright
+    - links
+    - address
+    - contact
+
+prop to component - is just like arugument to a function
