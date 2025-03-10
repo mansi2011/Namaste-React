@@ -231,4 +231,126 @@ before coding an app- eg: food delivering app
     - address
     - contact
 
-prop to component - is just like arugument to a function
+prop to component - is just like arugument to a function or in other words we pass data through props from on component to another.
+Config Driven UI - according to data my UI data will defer or driven. this kind of UI is basically term as config driven UI.
+We provide unique id to each card component on similar level so that react tracks which is which and re-renders only where it requires.
+it improve the performance impactively.
+passing index as key is a bad practice written in react documentation
+
+
+create folder structure as per industry standard
+export/imports are of two types : named and default.
+
+export default Component
+import Component from "path"
+
+export const Component
+import {Component} from "path"
+
+#React Hooks
+react hooks are normal javascript utility function.and we will have to import in our component.
+mainly used hooks are : useState, useEffect
+
+useState is a react utility function which gives state variable and a function in return which is used to update the state varibale.
+state varibale
+const [listOfRestraunt,setListOfRestraunt] = useState(initialValue)
+normal variable
+const listOfRestraunt = []
+
+point to be noted in case of useState:
+whenever state variable updates react re-renders the component using reconciliation algorithm or react fibre
+Why we use state varible???
+because normal Js varibale doesnt take the latest value of the variable and refresh and show it on UI to get that thing we are having state variable. useState - have a variable and a function to update the latest value of the variable and re render it so that we can see it on UI. because with it there is no way to track the varibale and its latest value to use in component.
+whenever there is a change in state variable react trigger reconcilliation process or re render
+
+Reconciliation algorithm(React fibre) - 
+
+
+virtual dom - is the representation of actual dom. basically the react element
+actual dom - body component when we do inspect
+
+diff algorithm - it basically find the difference between updated and previous virtual dom and update the UI, which helps in efficient dom manipulation.
+
+Monolith / Microservices Architecture - 
+
+point for microservice                                                point for monolith
+single responsibilty principle                                        all the services are in single project
+separation of concern                                                 no single responsibilty
+all service talk to each other 
+every services are written in multiple language 
+depends on the use case STACK is decided
+All the services are run on their own diff ports as its deployed that way
+
+
+methods on how react Loads the UI or any website what so ever
+
+Loads ---> render UI ----> API calls ---> re-Rneder UI 
+
+useEffect hooks 
+how to use
+useEffect(() => {} ,[])
+takes two argument - callback function, dependencies array
+if you want to do anything after rendering the component write it in useEffect
+useEffect is rendered everytime component renders but the behavior changes based on the dependency array
+if no dependency array then => useEffect is called every render
+if empty dependency array then => useEffect  is only called on initial render(just once)
+if we have something in dependency array then =>  useEffect is called only when the "something" dependency changes / updates
+
+CORS policy - browser blocks the api call from one origin to another origin 
+optional chaining - means avoiding the undefined or blank UI if the data is not present from response we get from API hence eg: data?.card is way we can write 
+
+better way is to load UI before api gets result is use shimmer UI
+Conditional Rendering - rendering of UI based on some condition is called conditional rendering
+
+Lazy Loading - its a method to load different parts on UI only when they are needed is known as code splitting. so what happens is a huge bundle and chunks of JS (which used to load the entire app at once in a minified format) will be shift to your UI as soon as we open website so so reduce the load on those bundle file we use code splitting and lazy load the component.
+
+Const Component = React.lazy(() => import("./path of the component))
+to use it we need a suspense component wrapped it so that till the time the part load it should have a fallback UI to display rather than just waiting on a blank screen
+In case component failed to load for some reason then it needs to have some error  to show which is called as error boundry
+
+Routing in react
+routing in react can be done using createBrowserRouter component from react-router-dom which take array of object that is basically a configuration that takes path and element opens on that specified path
+and this configuration is given to the root component using RouterProvider component from react-router-dom
+
+const appRouter = createBrowserRouter([
+    {
+        path:"/",
+        element:<Home/>
+    },
+    {
+        path: "/about",
+        element:<About/>
+    }
+])
+
+root.render(<RouterProvider router={appRouter}>)
+
+we can also have children routes while creating path configuration and set error in case of random or path which is not matched
+const appRouter = createBrowserRouter([
+    {
+        path:"/",
+        element:<Home/>
+        children:[{
+            path:"/contact",
+            element:<ContactUS/>
+        }],
+        errorElement:<Error/>
+    },
+    {
+        path: "/about",
+        element:<About/>
+    }
+])
+
+and to load children outlet inside the UI we have <outlet/> component from react-router-dom. basically it dynamically replace the outlet with the associated component corresponding to path given.
+
+we should not use <a> tag to define links because it reloads whole page to render it when we navigate.
+Instead use link component from react-router-dom which behind the scene uses <a> tag only, but it will be effecient as it wont reload the whole page while navigating it just reload the component where the update happened by keeping the track of it.
+this concept is what we call single page application.
+
+<a href="/">Home</a>
+<link to="/">Home</link>
+
+There are two type of routing : 
+server side routing  --- when while navigating we are getting page from server
+client side routing --- when all the component is already loaded inside our app and we navigate and it gets rendered 
