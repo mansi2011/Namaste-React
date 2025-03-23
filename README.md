@@ -353,4 +353,101 @@ this concept is what we call single page application.
 
 There are two type of routing : 
 server side routing  --- when while navigating we are getting page from server
-client side routing --- when all the component is already loaded inside our app and we navigate and it gets rendered 
+client side routing --- when all the component is already loaded inside our app and we navigate and it gets rendered.
+
+Class component in react is generally a normal javascript class which extends from React.Component class and has a render methods which return some jsx
+syntax:
+class UserClass extends React.Component{
+    render(){
+        return (
+            <div>
+                <h1>Hello from class component</h1>
+            </div>
+        )
+    }
+}
+
+export default UserClass
+
+To recieve prop in class based component we use constructor unlike argument in functional based component
+
+class UserClass extends React.Component{
+    constructor(props){
+        super(props)
+        console.log(props)
+    }
+    render(){
+        return (
+            <div>
+                <h1>Hello from class component {this.props.name}</h1>
+            </div>
+        )
+    }
+}
+
+export default UserClass
+
+props basically a object which has key value pair of data we send from one component to another.
+
+creating state in class based component:
+component loads in class based component means we created instance of a class and at that time constructor called hence we create state in constructor function.
+
+constructor(props){
+    super(props)
+    this.state = {
+        count:0,
+        count1:0
+    }
+}
+in class just like functional based component , we never update state value directly
+we use this.setState function which takes object of state variable with the updated value.
+this.setState({   
+    count:this.state.count + 1
+})
+
+lifecycle of parent and child in class based component:
+parent constructor
+parent render
+child constructor
+child render
+child component did mount
+parent component did mount
+
+React LifeCycle in case of multiple children
+parent constructor
+parent render
+first child constructor
+first child render
+second child constructor
+second child render
+first child component did mount
+second child component did mount 
+parent component did mount
+
+Note: react lifecycle has two phase render phase and commit phase
+render phase ---- constructor and render called
+commit ---- component did mount called
+this way react will optimised the process
+
+after the load if we want to do something we use componentDidMount function
+async componentDidMount(){
+    //Api call   
+
+    const data = await fetch("https://api.github.com/users/Mansi2011")
+    const josn = await sdata.json(  )
+}
+
+
+LifeCycle in react explaination:
+
+    Constructor(with dummy data)
+    render the same data
+    component did mount
+    api call happens here
+    state variable will get update using this.setState
+    update state will get render (with api response data)
+    component did update will called 
+    component will unmount called 
+
+component will unmount : is used to cleanup or destroy the interval or  something
+
